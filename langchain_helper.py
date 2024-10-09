@@ -25,7 +25,7 @@ def create_vector_db():
     data = loader.load()
 
     # Create a FAISS instance for vector database from 'data'
-    vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
+    vectordb = FAISS.from_documents(documents=data, embedding=embeddings, allow_dangerous_deserialization=True)
 
     # Save vector database locally
     vectordb.save_local("faiss_index")
