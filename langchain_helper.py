@@ -15,7 +15,7 @@ model = ChatOpenAI(
     max_tokens=None,
     timeout=None,
     max_retries=2,
-    api_key=os.getenv["OPENAI_API_KEY"],
+    api_key=os.getenv("OPENAI_API_KEY"),
 )
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
