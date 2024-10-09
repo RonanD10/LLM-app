@@ -20,10 +20,8 @@ model = ChatOpenAI(
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-csv_path = '/Users/ronan/Desktop/llm_project/Heart_Lung_and_BloodQA.csv'
-
 def create_vector_db():
-    loader = CSVLoader(file_path=csv_path, source_column="Question")
+    loader = CSVLoader(file_path='Heart_Lung_and_BloodQA.csv', source_column="Question")
     data = loader.load()
 
     # Create a FAISS instance for vector database from 'data'
@@ -67,5 +65,3 @@ if __name__ == "__main__":
     create_vector_db()
     chain = get_qa_chain()
     # print(chain("How common is asthma?")['result'])
-
-# What are the symptoms of pneumonia compared to asthma?
