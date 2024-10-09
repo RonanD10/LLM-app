@@ -29,10 +29,12 @@ def create_vector_db():
 
     # Save vector database locally
     # vectordb.save_local("faiss_index")
+    return vectordb 
 
 
 def get_qa_chain():
     # vectordb = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
+    vectordb = create_vector_db()
 
     retriever = vectordb.as_retriever(score_threshold=0.7)
 
