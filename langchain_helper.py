@@ -25,14 +25,14 @@ def create_vector_db():
     data = loader.load()
 
     # Create a FAISS instance for vector database from 'data'
-    vectordb = FAISS.from_documents(documents=data, embedding=embeddings, allow_dangerous_deserialization=True)
+    vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
 
     # Save vector database locally
     vectordb.save_local("faiss_index")
 
 
 def get_qa_chain():
-    vectordb = FAISS.load_local("faiss_index", embeddings)
+    vectordb = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
     retriever = vectordb.as_retriever(score_threshold=0.7)
 
