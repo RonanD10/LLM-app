@@ -21,20 +21,18 @@ model = ChatOpenAI(
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 def create_vector_db():
+    
     loader = CSVLoader(file_path='Heart_Lung_and_BloodQA.csv', source_column="Question")
     data = loader.load()
 
-    # Create a FAISS instance for vector database from 'data'
     vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
-
-    # Save vector database locally
-    # vectordb.save_local("faiss_index")
+    
     return vectordb 
 
 
+vectordb = create_vector_db()
+
 def get_qa_chain():
-    # vectordb = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
-    vectordb = create_vector_db()
 
     retriever = vectordb.as_retriever(score_threshold=0.7)
 
@@ -64,6 +62,5 @@ def get_qa_chain():
 
 
 if __name__ == "__main__":
-    create_vector_db()
     chain = get_qa_chain()
     # print(chain("How common is asthma?")['result'])
