@@ -11,10 +11,10 @@ load_dotenv()
 
 model = ChatOpenAI(
     model="gpt-4o",
-    temperature=0.1,
+    temperature=0.5,
     max_tokens=None,
     timeout=None,
-    max_retries=2,
+    max_retries=5,
     api_key=os.getenv("OPENAI_API_KEY"),
 )
 
