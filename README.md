@@ -9,6 +9,6 @@ Example questions:
 - Who co-founded Wikipedia?
 - Is Wikipedia a reliable source?
 
-![Alt text](/relative/path/to/interface.png?raw=true)
+![Alt text](/LLM-app/images/interface.png?raw=true)
 
 
