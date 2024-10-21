@@ -22,7 +22,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 def create_vector_db():
     
-    loader = CSVLoader(file_path='wikipedia-faq.csv', source_column="Question")
+    loader = CSVLoader(file_path='wikipedia-faq.xslx', source_column="Question")
     data = loader.load()
 
     vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
