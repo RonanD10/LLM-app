@@ -4,12 +4,11 @@ The app is trained on the Wikipedia FAQs (https://en.wikipedia.org/wiki/Wikipedi
 
 Example questions: 
 
-What stack does Wikipedia run on?
+- What stack does Wikipedia run on?
+- How do I edit an article?
+- Who co-founded Wikipedia?
+- Is Wikipedia a reliable source?
 
-How do I edit an article?
 
-Who co-founded Wikipedia?
-
-Is Wikipedia a reliable source?
 
 
