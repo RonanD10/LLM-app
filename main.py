@@ -1,10 +1,11 @@
 import streamlit as st
 from langchain_helper import create_vector_db, get_qa_chain
 
-st.title("Medical Q & A")
+st.title("Wikipedia Q & A")
 
-st.text("For illustration, trained on heart and lung medical data.") 
-st.text("Example questions: \n - 'What are the symptoms of pneumonia?'\n - 'How common is asthma?'")
+st.text("For illustration, trained on Wikipedia FAQs.") 
+st.text("Example questions: \nWhat stack does Wikipedia run on?\nHow do I edit an article?\nWho co-founded Wikipedia?\nIs Wikipedia a reliable source?")
+
 
 question = st.text_input("Question: ")
 
