@@ -22,7 +22,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 def create_vector_db():
     
-    loader = CSVLoader(file_path='Heart_Lung_and_BloodQA.csv', source_column="Question")
+    loader = CSVLoader(file_path='wikipedia-faq.csv', source_column="Question")
     data = loader.load()
 
     vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
@@ -37,7 +37,7 @@ def get_qa_chain():
     retriever = vectordb.as_retriever(score_threshold=0.5)
 
     prompt_template = """Given the following context and a question, generate an answer based on this context only.
-    In the answer try to provide as much text as possible from "answer" section in the source document context without making much changes. 
+    In the answer try to provide as much text as possible from "Answer" section in the source document context without making much changes. 
     Also check other answers that other answers that features key words from the question. 
     If the answer is not found in the context, kindly state "I don't know." Don't try to make up an answer.
 
@@ -64,4 +64,3 @@ def get_qa_chain():
 
 if __name__ == "__main__":
     chain = get_qa_chain()
-    # print(chain("How common is asthma?")['result'])
