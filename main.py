@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_helper import create_vector_db, get_qa_chain
+from qa_chain import create_vector_db, get_qa_chain
 
 st.title("Wikipedia Q & A")
 
